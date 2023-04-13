@@ -14,4 +14,16 @@
     <Page Remove="新文件夹\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Resources\NewFile.png" />
+    <None Remove="Resources\Open.png" />
+    <None Remove="Resources\Save.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\NewFile.png" />
+    <Resource Include="Resources\Open.png" />
+    <Resource Include="Resources\Save.png" />
+  </ItemGroup>
+
 </Project>
