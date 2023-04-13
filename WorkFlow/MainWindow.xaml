@@ -5,8 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkFlow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="VisualFlowPlatform" Height="450" Width="800">
+
+    <Window.Resources>
+        <Style x:Key="ImageEnabled" TargetType="Image">
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.25"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="600*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="500*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Background="NavajoWhite">VFP</Label>
+        <ToolBarTray Grid.Row="0" Grid.Column="1" Background="DarkGray">
+            <ToolBar ToolBarTray.IsLocked="True" >
+                <Button Command="{Binding NewFlowCommand}" ToolTip="Create an new flow">
+                    <Image Source="Resources\NewFile.png" Style="{StaticResource ImageEnabled}" />
+                </Button>
+                <Button Command="{Binding OpenFlowCommand}" ToolTip="Open an existing flow">
+                    <Image Source="Resources\Open.png" Style="{StaticResource ImageEnabled}" />
+                </Button>
+                <Separator />
+                <Button Command="{Binding SaveFlowCommand}" ToolTip="Save the current flow">
+                    <Image Source="Resources\Save.png" Style="{StaticResource ImageEnabled}" />
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
 
     </Grid>
 </Window>
